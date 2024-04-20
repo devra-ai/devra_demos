@@ -1,0 +1,1 @@
+Create a python script that loads a text file containing a guitar tab, converts it to midi, and saves it as a midi file.  This will be in `python/guitar_tab_to_midi_python`.  There is already a sample guitar tab file in there.

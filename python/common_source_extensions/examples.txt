@@ -1,0 +1,50 @@
+1. `.py` - Python
+2. `.js` - JavaScript
+3. `.java` - Java source files
+4. `.c` - C programming language
+5. `.cpp` - C++
+6. `.cs` - C#
+7. `.rb` - Ruby
+8. `.php` - PHP
+9. `.swift` - Swift
+10. `.go` - Go
+11. `.ts` - TypeScript
+12. `.m` - Objective-C
+13. `.kt` - Kotlin
+14. `.scala` - Scala
+15. `.rs` - Rust
+16. `.pl` - Perl
+17. `.lua` - Lua
+18. `.groovy` - Groovy
+19. `.r` - R
+20. `.sh` - Shell script
+21. `.ps1` - PowerShell
+22. `.bat` - Batch file
+23. `.sql` - SQL script
+24. `.ml` - OCaml
+25. `.hs` - Haskell
+26. `.elm` - Elm
+27. `.erl` - Erlang
+28. `.ex` - Elixir
+29. `.clj` - Clojure
+30. `.vb` - Visual Basic
+31. `.f` - Fortran
+32. `.d` - D programming language
+33. `.asm` - Assembly language
+34. `.s` - Assembly language (alternate extension)
+35. `.vhd` - VHDL
+36. `.sv` - SystemVerilog
+37. `.mat` - MATLAB
+38. `.pas` - Pascal
+39. `.ada` - Ada
+40. `.lisp` - Lisp
+41. `.scss` - Sassy CSS
+42. `.sass` - Syntactically Awesome Stylesheets
+43. `.less` - Leaner Style Sheets
+44. `.coffee` - CoffeeScript
+45. `.json` - JSON (configurations or scripts)
+46. `.jsx` - JavaScript XML (React)
+47. `.tsx` - TypeScript XML (React)
+48. `.h` - C/C++ Header file
+49. `.hpp` - C++ Header file
+50. `.v` - Verilog
