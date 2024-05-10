@@ -4,7 +4,6 @@
 From: https://www.kaggle.com/datasets/martj42/international-football-results-from-1872-to-2017
 The description is as follows:
 
------
 This dataset includes 46,442 results of international football matches starting from the very first official match in 1872 up to 2024. The matches range from FIFA World Cup to FIFI Wild Cup to regular friendly matches. The matches are strictly men's full internationals and the data does not include Olympic Games or matches where at least one of the teams was the nation's B-team, U-23 or a league select team.
 
 `results.csv` includes the following columns:
@@ -36,11 +35,3 @@ This dataset includes 46,442 results of international football matches starting 
 Note on team and country names: For home and away teams the current name of the team has been used. For example, when in 1882 a team who called themselves Ireland played against England, in this dataset, it is called Northern Ireland because the current team of Northern Ireland is the successor of the 1882 Ireland team. This is done so it is easier to track the history and statistics of teams.
 
 For country names, the name of the country at the time of the match is used. So when Ghana played in Accra, Gold Coast in the 1950s, even though the names of the home team and the country don't match, it was a home match for Ghana. This is indicated by the neutral column, which says FALSE for those matches, meaning it was not at a neutral venue.
------
-
-Our project is in `kaggle/international_football_results`
-the data is stored in `kaggle/international_football_results/data`
-
-Your role as a data scientist is to produce a Jupyter notebook of an 
-analysis of this data with interesting charts and insights.  
-Assume the data sets will load successfully and complete the full analysis.
