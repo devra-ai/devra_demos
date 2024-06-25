@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .hidden {
+            display: none;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        #startButton, #micButton {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #micButton {
+            background-color: #f44336;
+        }
+        #answerInput {
+            padding: 10px;
+            font-size: 16px;
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="startButton">Start Game</button>
+        <div id="game" class="hidden">
+            <div id="timer">Time: 60</div>
+            <div id="score">Score: 0</div>
+            <div id="question" style="margin: 20px 0; font-size: 24px;"></div>
+            <input type="text" id="answerInput" autofocus>
+            <button id="micButton">
+                <span role="img" aria-label="microphone">
+                    🎤
+                </span>
+            </button>
+            <div id="feedback" style="margin-top: 10px; font-size: 18px;"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
