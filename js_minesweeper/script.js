@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let isGameOver = false;
     let flags = 0;
     let isFirstClick = true;
+    let longPressTimer;
+    let isLongPress = false;
 
     // Create the board
     function createBoard() {
@@ -27,7 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
             cells.push(cell);
 
             // Normal click
-            cell.addEventListener('click', () => {
+            cell.addEventListener('click', (e) => {
+                if (isLongPress) {
+                    isLongPress = false;
+                    return;
+                }
                 click(cell);
             });
 
@@ -36,6 +42,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 addFlag(cell);
             }
+
+            // Long press for mobile and non-mobile
+            cell.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                longPressTimer = setTimeout(() => {
+                    isLongPress = true;
+                    addFlag(cell);
+                }, 500);
+            });
+
+            cell.addEventListener('mouseup', (e) => {
+                clearTimeout(longPressTimer);
+            });
+
+            cell.addEventListener('mouseleave', (e) => {
+                clearTimeout(longPressTimer);
+            });
+
+            cell.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                longPressTimer = setTimeout(() => {
+                    isLongPress = true;
+                    addFlag(cell);
+                }, 500);
+            });
+
+            cell.addEventListener('touchend', (e) => {
+                clearTimeout(longPressTimer);
+            });
         }
 
         // Add numbers
@@ -85,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cell.classList.add('revealed');
     }
 
-    // Add flag with right click
+    // Add flag with right click or long press
     function addFlag(cell) {
         if (isGameOver) return;
         if (!cell.classList.contains('revealed') && (cell.classList.contains('flag'))) {
