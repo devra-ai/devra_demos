@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cells = [];
     let isGameOver = false;
     let flags = 0;
+    let isFirstClick = true;
 
     // Create the board
     function createBoard() {
@@ -65,16 +66,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isGameOver) return;
         if (cell.classList.contains('revealed') || cell.classList.contains('flag')) return;
         if (cell.getAttribute('data-mine')) {
-            gameOver(cell);
-        } else {
-            let total = cell.getAttribute('data');
-            if (total != 0) {
-                cell.classList.add('revealed');
-                cell.innerHTML = total;
+            if (isFirstClick) {
+                reshuffleBoard(currentId);
+                return;
+            } else {
+                gameOver(cell);
                 return;
             }
-            revealCell(cell, currentId);
         }
+        isFirstClick = false;
+        let total = cell.getAttribute('data');
+        if (total != 0) {
+            cell.classList.add('revealed');
+            cell.innerHTML = total;
+            return;
+        }
+        revealCell(cell, currentId);
         cell.classList.add('revealed');
     }
 
@@ -152,5 +159,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 cell.classList.add('revealed');
             }
         });
+    }
+
+    // Reshuffle the board if the first click is on a mine
+    function reshuffleBoard(firstClickId) {
+        // Remove all cells from the grid
+        while (grid.firstChild) {
+            grid.removeChild(grid.firstChild);
+        }
+        cells.length = 0;
+        isFirstClick = true;
+        createBoard();
+        // Trigger click on the same cell after reshuffling
+        click(document.getElementById(firstClickId));
     }
 });
