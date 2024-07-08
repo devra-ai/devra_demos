@@ -6,11 +6,23 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background: url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 h1 {
     margin: 20px 0;
+}
+
+.title-image {
+    width: 50%;
+    max-width: 100%;
+}
+
+@media (max-width: 600px) {
+    .title-image {
+        width: 100%;
+    }
 }
 
 #minesweeper {
@@ -19,6 +31,9 @@ h1 {
     grid-template-rows: repeat(10, 40px);
     gap: 2px;
     margin: 20px 0;
+    background-color: black;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 p {
@@ -28,7 +43,8 @@ p {
 .cell {
     width: 40px;
     height: 40px;
-    background-color: #ddd;
+    background: url('images/covered.gif') no-repeat center center;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,14 +54,23 @@ p {
 }
 
 .cell.revealed {
-    background-color: #bbb;
+    background: url('images/dirt.gif') no-repeat center center;
+    background-size: cover;
     cursor: default;
 }
 
 .cell.mine {
-    background-color: red;
+    background: url('images/bomb.gif') no-repeat center center;
+    background-size: cover;
 }
 
 .cell.flag {
-    background-color: yellow;
+    background: url('images/flag.gif') no-repeat center center;
+    background-size: cover;
+}
+
+.cell.revealed[data] {
+    color: red;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
 }

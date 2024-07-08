@@ -10,6 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let longPressTimer;
     let isLongPress = false;
 
+    // Load audio files
+    const explosionSound = new Audio('audio/explosion.wav');
+    const placeFlagSound = new Audio('audio/place-flag.wav');
+    const revealFloorSound = new Audio('audio/reveal-floor.wav');
+    const themeSound = new Audio('audio/theme.mp3');
+    themeSound.loop = true;
+
     // Create the board
     function createBoard() {
         const minesArray = Array(minesCount).fill('mine');
@@ -109,15 +116,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
         }
-        isFirstClick = false;
+        if (isFirstClick) {
+            themeSound.play();
+            isFirstClick = false;
+        }
         let total = cell.getAttribute('data');
         if (total != 0) {
             cell.classList.add('revealed');
             cell.innerHTML = total;
+            revealFloorSound.play();
             return;
         }
         revealCell(cell, currentId);
         cell.classList.add('revealed');
+        revealFloorSound.play();
     }
 
     // Add flag with right click or long press
@@ -129,8 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
             flags--;
         } else if (!cell.classList.contains('revealed') && (!cell.classList.contains('flag')) && flags < minesCount) {
             cell.classList.add('flag');
-            cell.innerHTML = '\ud83d\udea9';
-            flags++;
+            cell.innerHTML = '';
+            placeFlagSound.play();
         }
     }
 
@@ -186,12 +198,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Game over
     function gameOver(cell) {
         isGameOver = true;
+        explosionSound.play();
 
         // Show all mines
         cells.forEach(cell => {
             if (cell.getAttribute('data-mine')) {
-                cell.innerHTML = '\ud83d\udca3';
-                cell.classList.add('revealed');
+                cell.classList.add('mine');
             }
         });
     }
